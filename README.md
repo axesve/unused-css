@@ -2,6 +2,12 @@
 
 Checks given HTML and CSS file for selectors that are unused in the HTML file.
 
+# Link
+
+Currently the project does not have a domain, but you can access it,
+[HERE](https://axesve.github.io/unused-css/)
+
+
 ## Contributing
 
 Feel free to contribute and improvements you've made!
