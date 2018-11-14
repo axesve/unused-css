@@ -2,21 +2,10 @@
 
 Checks given HTML and CSS file for selectors that are unused in the HTML file.
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 ## Contributing
 
 Feel free to contribute and improvements you've made!
+Please see [todo.txt](todo.txt) for full TODO list!
 
 ## Authors
 
