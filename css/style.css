@@ -87,6 +87,27 @@ html,body{
   pointer-events: none;
 }
 
+#bigText{
+  font-size:5em;
+  font-family: 'Pacifico', cursive;
+  transform: rotate(-10deg);
+}
+
+
+.footer{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  z-index: 100;
+}
+
+#ver{
+  float:left;
+  opacity: 0.6;
+  margin:5px;
+}
+
+
 .form-group{
   margin:10px;
   width: 300px;
@@ -249,7 +270,7 @@ html,body{
   margin:0px;
   padding:0px;
   position: absolute;
-  top:50px; 
+  top:50px;
   left:70px;
   opacity: 0.7;
 }
