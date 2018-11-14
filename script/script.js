@@ -2,7 +2,8 @@
 
 
 var tags = ["::", "h1", "::"];
-
+var html_files_supported = [".html",".php"];
+var css_files_supported = [".css",".scss"];
 
 setInterval(()=>{
     var html = document.getElementById("html").value;
@@ -20,6 +21,7 @@ setInterval(()=>{
 },50);
 
 
+
 window.onload = function() {
    var html_input = document.getElementById('html');
    var html_input_data = document.getElementById('html_file_data');
@@ -27,21 +29,22 @@ window.onload = function() {
    var css_input = document.getElementById('css');
    var css_input_data = document.getElementById('css_file_data');
 
+
    html_input.addEventListener('change', function(e) {
    	  $("#html-file").addClass('done');
       var file = html_input.files[0];
-      var textType = /text.*/;
 
-      if (file.type.match(textType)) {
+      if (html_files_supported.includes(file.name.substring(file.name.indexOf("."), file.name.length)) && file.name != null) {
          var reader = new FileReader();
 
          reader.onload = function(e) {
             html_input_data.innerText = reader.result;
          }
 
-         reader.readAsText(file);   
+         reader.readAsText(file);
       } else {
-         html_input_data.innerText = "File not supported!"
+        console.log("FILE NOT SUPPORTED!");
+        $("#html-file").removeClass('done');
       }
    });
 
@@ -49,13 +52,18 @@ window.onload = function() {
       $("#css-file").addClass('done');
       var file = css_input.files[0];
 
+        if (css_files_supported.includes(file.name.substring(file.name.indexOf("."), file.name.length)) && file.name != null) {
          var reader = new FileReader();
 
          reader.onload = function(e) {
             css_input_data.innerText = reader.result;
          }
 
-         reader.readAsText(file);   
+         reader.readAsText(file);
+       } else {
+         console.log("FILE NOT SUPPORTED!");
+         $("#css-file").removeClass('done');
+       }
 
    });
 }
@@ -106,7 +114,7 @@ function runFunc() {
 
             var class_index = 0;
 
-            //Check line if it contains a class and get its index 
+            //Check line if it contains a class and get its index
             class_index = htmlLines[i].search("class=");
 
             //If it does then start at the index and take out any un needed information, etc strips class="class"></div> to "class"
@@ -125,7 +133,7 @@ function runFunc() {
                     var old_val = "";
                     //check each multiple class and add a . infront if it does not have one
                     for (j = 0; j < multiClass.length; j++) {
-                        if (multiClass[j].charAt(0) != "." && multiClass[j] != null) {     
+                        if (multiClass[j].charAt(0) != "." && multiClass[j] != null) {
                             	htmlSelectors.push("." + multiClass[j]);
                         } else { //If it does then just add it
                             if (!htmlSelectors.includes(multiClass[j])) {
@@ -220,7 +228,7 @@ function runFunc() {
 function downloadCSS(){
 
 }
-    
+
 var finalCSS = "";
 
 (function () {
