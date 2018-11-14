@@ -7,6 +7,11 @@ Checks given HTML and CSS file for selectors that are unused in the HTML file.
 Currently the project does not have a domain, but you can access it,
 [HERE](https://axesve.github.io/unused-css/)
 
+## Known issues
+
+This will not look at *Keyframes, programmatically added Elements* 
+
+Cleaned CSS code needs to be run in a CSS beautifier for it to look nice, would like to get this solved.
 
 ## Contributing
 
