@@ -30,12 +30,14 @@ https://github.com/axesve/unused-css
 var tags = ["::", "h1", "::"];
 var html_files_supported = [".html",".php"];
 var css_files_supported = [".css",".scss"];
+var html_file_string = [];
+var css_file_string = [];
 
 setInterval(()=>{
-    var html = document.getElementById("html").value;
-    var css = document.getElementById("css").value;
+    var html = $(".html_file").length
+    var css = $(".css_file").length
 
-	if(html.length > 0 && css.length > 0){
+	if(html > 0 && css > 0){
 		document.getElementById("nice").classList.remove('disabled');
 		document.getElementById("nice").classList.remove('red');
 		document.getElementById("nice").classList.add('blue');
@@ -43,6 +45,15 @@ setInterval(()=>{
 		document.getElementById("nice").classList.add('disabled');
 		document.getElementById("nice").classList.add('red');
 	}
+
+
+    if(html == 0){
+        $("#html-file").removeClass('done');
+    }
+
+    if(css == 0){
+        $("#css-file").removeClass('done');
+    }
 
 },50);
 
@@ -60,11 +71,15 @@ window.onload = function() {
    	  $("#html-file").addClass('done');
       var file = html_input.files[0];
 
-      if (html_files_supported.includes(file.name.substring(file.name.indexOf("."), file.name.length)) && file.name != null) {
+
+      if(file.name != null){
+      if (html_files_supported.includes(file.name.substring(file.name.indexOf("."), file.name.length))) {
          var reader = new FileReader();
 
          reader.onload = function(e) {
-            html_input_data.innerText = reader.result;
+            html_file_string.push(reader.result);
+            $("#html_form").append('<div class="file-btn html_file" pos="'+(html_file_string.length-=1)+'">'+file.name+'</div>');
+            $(html_input).val('');
          }
 
          reader.readAsText(file);
@@ -72,17 +87,21 @@ window.onload = function() {
         console.log("FILE NOT SUPPORTED!");
         $("#html-file").removeClass('done');
       }
+  }
    });
 
       css_input.addEventListener('change', function(e) {
       $("#css-file").addClass('done');
       var file = css_input.files[0];
 
-        if (css_files_supported.includes(file.name.substring(file.name.indexOf("."), file.name.length)) && file.name != null) {
+      if(file.name != null){
+        if (css_files_supported.includes(file.name.substring(file.name.indexOf("."), file.name.length))) {
          var reader = new FileReader();
 
          reader.onload = function(e) {
-            css_input_data.innerText = reader.result;
+            css_file_string.push(reader.result);
+            $("#css_form").append('<div class="file-btn css_file" pos="'+(css_file_string.length-=1)+'">'+file.name+'</div>');
+            $(css_input).val('');
          }
 
          reader.readAsText(file);
@@ -90,7 +109,7 @@ window.onload = function() {
          console.log("FILE NOT SUPPORTED!");
          $("#css-file").removeClass('done');
        }
-
+   }
    });
 }
 
@@ -100,18 +119,22 @@ var html, htmlLines, htmlSelectors;
 var css, cssLines, cssSelectors;
 
 function runFunc() {
+
 	//Get HTML and CSS values
-    html = document.getElementById("html_file_data").value;
-    css = document.getElementById("css_file_data").value;
+    for (var h = 0; h < html_file_string.length; h++) {
+        html += html_file_string[h].replace(/(\r\n|\n|\r)/gm, "");
+    }
+
+    for (var c = 0; c < css_file_string.length; c++) {
+        css += css_file_string[c].replace(/(\r\n|\n|\r)/gm, "");
+    }
 
     //Arrays
     cssLines = [];
     cssSelectors = [];
 
-
     //Split new lines into array
     cssLines = css.split('}');
-
 
     //Check each line and look if it starts with . or # then get its name untill {
     for (var i = cssLines.length - 1; i >= 0; i--) {
@@ -313,3 +336,14 @@ function removeDuplicates(arr){
     }
     return unique_array
 }
+
+
+$('body').on('click', '.html_file', function() {
+    html_file_string.splice($(this).attr("pos"), 1);
+    $(this).remove();
+});
+
+$('body').on('click', '.css_file', function() {
+    css_file_string.splice($(this).attr("pos"), 1);
+    $(this).remove();
+});
