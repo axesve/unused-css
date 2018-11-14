@@ -23,4 +23,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
+### Some of the functions such as removeA() and removeDuplicates() are taken from stackoverflow, I have lost the Solution links so if you are one of the authors and want credit please contact me.
