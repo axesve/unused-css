@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+  
+  <div class="container">
+    <div id="options">
+      <div class="form-group">
+        <h1>1.</h1>
+        <p>Start by selecting HTML file.</p>
+        <input type="file" name="file" id="html" class="input-file" accept="text">
+        <label for="html" class="filebtn" id="html-file">
+          <span >HTML</span>
+        </label>
+            <textarea class="hide" id="html_file_data"></textarea>
+      </div>
+
+      <div class="form-group">
+        <h1>2.</h1>
+        <p>Select CSS file.</p>
+        <input type="file" name="file" id="css" class="input-file" accept="text">
+        <label for="css" class="filebtn" id="css-file">
+          <span >CSS</span>
+        </label>
+            <textarea class="hide" id="css_file_data"></textarea>
+      </div>
+
+      <button type="button" id="nice" class="btn red disabled" onclick="runFunc()">Check Selectors!</button>
+    </div>
+
+    <div class="result">
+      <h1>Result</h1>
+      
+      <div class="result_cont">
+        <h2>HTML</h2>
+        <textarea class="result_area" id="result_html" readonly="true"></textarea>
+      </div>
+
+      <div class="result_cont">
+        <h2>CSS</h2>
+        <textarea class="result_area" id="result_css" readonly="true"></textarea>
+      </div>
+
+
+      <div class="result_cont">
+        <h2>Un-used CSS</h2>
+        <p id="keepText">Click to keep</p>
+        <div class="result_area" id="unused_result_css" readonly="true"></div><br>
+        <a type="button" class="btn green" onclick="downloadCSS()" id="download" download="cleaned_css.css">Download CSS</a>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
