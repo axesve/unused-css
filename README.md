@@ -5,6 +5,7 @@ Checks given HTML and CSS file for selectors that are unused in the HTML file.
 ## Contributing
 
 Feel free to contribute and improvements you've made!
+Please see [todo.txt](text.txt) for full TODO list!
 
 ## Authors
 
