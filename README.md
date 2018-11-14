@@ -9,7 +9,7 @@ Currently the project does not have a domain, but you can access it,
 
 ## Known issues
 
-This will not look at *Keyframes, programmatically added Elements* 
+This will not look at **Keyframes and programmatically added Elements**
 
 Cleaned CSS code needs to be run in a CSS beautifier for it to look nice, would like to get this solved.
 
