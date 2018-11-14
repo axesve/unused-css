@@ -250,11 +250,6 @@ function runFunc() {
 }
 
 
-
-function downloadCSS(){
-
-}
-
 var finalCSS = "";
 
 (function () {
