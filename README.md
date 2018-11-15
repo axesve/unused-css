@@ -1,6 +1,7 @@
 # Unused-CSS
 
 Checks given HTML and CSS file for selectors that are unused in the HTML file.
+You can put in multiple files for larger projects.
 
 # Link
 
