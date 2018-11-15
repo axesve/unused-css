@@ -61,11 +61,7 @@ setInterval(()=>{
 
 window.onload = function() {
    var html_input = document.getElementById('html');
-   var html_input_data = document.getElementById('html_file_data');
-
    var css_input = document.getElementById('css');
-   var css_input_data = document.getElementById('css_file_data');
-
 
    html_input.addEventListener('change', function(e) {
    	  $("#html-file").addClass('done');
@@ -78,7 +74,7 @@ window.onload = function() {
 
          reader.onload = function(e) {
             html_file_string.push(reader.result);
-            $("#html_form").append('<div class="file-btn html_file" pos="'+(html_file_string.length-=1)+'">'+file.name+'</div>');
+            $("#html_form").append('<div class="file-btn html_file" pos="'+(html_file_string.length-1)+'">'+file.name+'</div>');
             $(html_input).val('');
          }
 
@@ -100,7 +96,7 @@ window.onload = function() {
 
          reader.onload = function(e) {
             css_file_string.push(reader.result);
-            $("#css_form").append('<div class="file-btn css_file" pos="'+(css_file_string.length-=1)+'">'+file.name+'</div>');
+            $("#css_form").append('<div class="file-btn css_file" pos="'+(css_file_string.length-1)+'">'+file.name+'</div>');
             $(css_input).val('');
          }
 
