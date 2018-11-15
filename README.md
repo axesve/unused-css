@@ -1,6 +1,6 @@
 # Unused-CSS
-
-Checks given HTML and CSS file for selectors that are unused in the HTML file.
+Web based system, no dependencies, no installation all you need is a browser and about 1 minute.<br>
+Scan given HTML and CSS file(s) for selectors that are unused in the HTML file.<br>
 You can put in multiple files for larger projects.
 
 # Link
