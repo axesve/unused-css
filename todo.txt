@@ -1,4 +1,7 @@
 TODO
-
-* Add drag and drop feature
-* Add CSS beautifier
+  
+  * Add drag and drop feature
+  * Add CSS beautifier
+  * Implement dynamic selector feature
+  * Implement SCSS and other stuff support
+  * Implement CSS operator support
