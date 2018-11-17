@@ -274,19 +274,23 @@ var finalCSS = "";
 (function () {
 var textFile = null,
   makeTextFile = function () {
-
-
-    //Fixa så att den tar bort Klasserna från filen
-    //Fixa så att den behåller keep
-
+    
     for (var i = 0; i < cssLines.length; i++) {
-        var _class = cssLines[i].substring(0,cssLines[i].indexOf("{")-1);
 
-        if(unused_css.indexOf(_class) == -1){
-            finalCSS += cssLines[i] + "}" + "\r\n" + "\r\n";
-        }
+        var _class = cssLines[i].substring(0,cssLines[i].indexOf("{")-1);
+        _class = _class.replace(/\s+/g, '');
+
+            if(keep_css.includes(_class)){
+                finalCSS += cssLines[i] + "}" + "\r\n" + "\r\n";
+            }
+
+            if(!unused_css.includes(_class)){
+                console.log(_class);
+                finalCSS += cssLines[i] + "}" + "\r\n" + "\r\n";
+            }
     }
 
+    finalCSS = finalCSS.replace("undefined","");
     var data = new Blob([finalCSS], {type: 'text/plain'});
 
     // If we are replacing a previously generated file we need to
